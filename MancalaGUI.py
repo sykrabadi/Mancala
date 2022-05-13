@@ -1,4 +1,4 @@
-from Tkinter import *
+from tkinter import *
 from MancalaBoard import *
 from play import *
 

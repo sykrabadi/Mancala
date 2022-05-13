@@ -158,20 +158,20 @@ class MancalaBoard:
         while not(self.gameOver()):
             again = True
             while again:
-                print self
+                print(self) 
                 move = currPlayer.chooseMove( self )
                 while not(self.legalMove(currPlayer, move)):
-                    print move, " is not legal"
+                    print(move, " is not legal") 
                     move = currPlayer.chooseMove(self)
                 again = self.makeMove( currPlayer, move )
             temp = currPlayer
             currPlayer = waitPlayer
             waitPlayer = temp
 
-        print self
+        print(self) 
         if self.hasWon(currPlayer.num):
-            print "Player", currPlayer, " wins!"
+            print("Player", currPlayer, " wins!") 
         elif self.hasWon(waitPlayer.num):
-            print "Player", waitPlayer, " wins!"
+            print("Player", waitPlayer, " wins!") 
         else:
-            print "Tie Game"
+            print("Tie Game") 

@@ -46,7 +46,7 @@ class Player:
             #try the move
             opp = Player(self.opp, self.type, self.ply)
             s = opp.minValue(nb, ply-1, turn)
-            print "move: {} score : {}".format(m, s)
+            print ("move: {} score : {}".format(m, s))
             #and see what the opponent would do next
             if s > score:
                 #if the result is better than our best score so far, save that move,score
@@ -206,35 +206,35 @@ class Player:
         if self.type == self.HUMAN:
             move = input("Please enter your move:")
             while not board.legalMove(self, move):
-                print move, "is not valid"
+                print (move, "is not valid")
                 move = input( "Please enter your move" )
             return move
         elif self.type == self.RANDOM:
             move = choice(board.legalMoves(self))
-            print "chose move", move
+            print ("chose move", move)
             return move
         elif self.type == self.MINIMAX:
             val, move = self.minimaxMove(board, self.ply)
-            print board.scoreCups
-            print "score is"
-            print self.score(board)
-            print "chose move", move, " with value", val
+            print (board.scoreCups)
+            print ("score is")
+            print (self.score(board))
+            print ("chose move", move, " with value", val)
             return move
         elif self.type == self.ABPRUNE:
             val, move = self.minimaxMove(board, self.ply)
-            print "minimax would choose move", move, "with value", val
+            print ("minimax would choose move", move, "with value", val)
             val, move = self.alphaBetaMove(board, self.ply)
-            print "ab pruning chose move", move, " with value", val
+            print ("ab pruning chose move", move, " with value", val)
             return move
         elif self.type == self.CUSTOM:
             #sets ply to be 7, uses ABpruning and our improved heuristic
             val, move = self.alphaBetaMove(board, 7)
-            print "ab pruning chose move", move, " with value", val
+            print ("ab pruning chose move", move, " with value", val)
             return move
         
         
         else:
-            print "Unknown player type"
+            print ("Unknown player type")
             return -1
 
 
